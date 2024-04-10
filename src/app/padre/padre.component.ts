@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, input } from '@angular/core';
 import { HijoComponent } from "../hijo/hijo.component";
 
 @Component({
@@ -11,4 +11,5 @@ import { HijoComponent } from "../hijo/hijo.component";
 export class PadreComponent {
 
     title :string = 'Esto es el título del padre';
+   @Input() datoEntrada: string = '';
 }

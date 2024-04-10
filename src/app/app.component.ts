@@ -14,7 +14,18 @@ export class AppComponent {
 
   // esto son propiedades de la clase AppComponent.
   title : string = 'Hola mundo en Angular';
-  name: string = 'Lucía' 
+  name: string = 'Lucía' ;
+
+  valorContador :number = 0 ;
+  valorDesdeApp :string = 'Hola Mundo desde el padre';
+
+  incrementar(){
+    this.valorContador++ ;
+  }
+
+  decrementar(){
+    this.valorContador--;
+  }
 
   
 }
