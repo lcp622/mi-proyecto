@@ -9,5 +9,10 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'mi-proyecto';
+
+  // esto son propiedades de la clase AppComponent.
+  title : string = 'Hola mundo en Angular';
+  name: string = 'Lucía' 
+
+  
 }
