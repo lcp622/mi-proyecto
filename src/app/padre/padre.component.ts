@@ -1,15 +1,30 @@
-import { Component, Input, input } from '@angular/core';
-import { HijoComponent } from "../hijo/hijo.component";
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { ServicioFamiliarService } from '../servicio-familiar.service';
+import { HermanoComponent } from "../hermano/hermano.component";
 
 @Component({
-    selector: 'app-padre',
     standalone: true,
+    selector: 'app-padre',
     templateUrl: './padre.component.html',
-    styleUrl: './padre.component.css',
-    imports: [HijoComponent]
+    styleUrls: ['./padre.component.css'],
+    imports: [FormsModule, HermanoComponent]
 })
-export class PadreComponent {
+export class PadreComponent implements OnInit {
 
-    title :string = 'Esto es el título del padre';
-   @Input() datoEntrada: string = '';
+
+  constructor(private _servicioFamiliar : ServicioFamiliarService ){
+
+  }
+
+  nombre:string = '';
+  ngOnInit(): void {
+      this._servicioFamiliar.setHermanoGrande('Pedro');
+      this.nombre = this._servicioFamiliar.getHermanoGrande();
+  }
+  
+  saludar(){
+    this._servicioFamiliar.saludar(this._servicioFamiliar.getHermanoPequeño() || '');
+    this.nombre = this._servicioFamiliar.getHermanoGrande();
+  }
 }
