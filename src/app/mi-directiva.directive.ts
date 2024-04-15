@@ -1,4 +1,5 @@
-import { Directive } from '@angular/core';
+import { Directive, ElementRef } from '@angular/core';
+
 
 @Directive({
   selector: '[appMiDirectiva]',
@@ -6,6 +7,8 @@ import { Directive } from '@angular/core';
 })
 export class MiDirectivaDirective {
 
-  constructor() { }
-
+  constructor( private element: ElementRef) {
+    this.element.nativeElement.style.textTransform = 'toUpperCase';
+   }
+  
 }
